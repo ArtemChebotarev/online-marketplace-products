@@ -25,10 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OnlineMarketplace.Products.BL\OnlineMarketplace.Products.BL.csproj" />
     <ProjectReference Include="..\OnlineMarketplace.Products.DAL\OnlineMarketplace.Products.DAL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\OnlineMarketplace.Products\OnlineMarketplace.Products.Api.csproj" />
   </ItemGroup>
 
 </Project>

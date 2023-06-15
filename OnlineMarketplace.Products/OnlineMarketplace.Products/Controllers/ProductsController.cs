@@ -20,7 +20,7 @@ namespace OnlineMarketplace.Products.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetBySeller([FromQuery] int? sellerId)
+        public async Task<IActionResult> GetAll([FromQuery] int? sellerId)
         {
             if (sellerId.HasValue)
             {
@@ -38,9 +38,9 @@ namespace OnlineMarketplace.Products.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById([FromRoute] int id)
+        public async Task<IActionResult> Get([FromRoute] int id)
         {
-            var result = _mediator.Send(new GetProductByIdQuery(id));
+            var result = await _mediator.Send(new GetProductByIdQuery(id));
 
             if (result is null)
             {

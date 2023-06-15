@@ -23,7 +23,7 @@ namespace OnlineMarketplace.Products.BL.Handlers.Command
         {
             var product = await _productRepository.GetProductByIdAsync(request.Id);
             
-            if (product == null)
+            if (product is null)
             {
                 throw new ValidationException($"Product: {request.Id} not found");
             }

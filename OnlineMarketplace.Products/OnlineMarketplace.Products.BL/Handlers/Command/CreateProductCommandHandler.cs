@@ -4,6 +4,7 @@ using OnlineMarketplace.Products.BL.Dto;
 using OnlineMarketplace.Products.BL.Mappers;
 using OnlineMarketplace.Products.DAL;
 using OnlineMarketplace.Products.DAL.Repositories;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineMarketplace.Products.BL.Handlers.Command
 {
@@ -20,6 +21,11 @@ namespace OnlineMarketplace.Products.BL.Handlers.Command
 
         public async Task<ProductDto> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
+            if (request.SellerId <= 0)
+            {
+                throw new ValidationException("SellerId should be greater that 0");
+            }
+
             var product = request.ToProduct();
             _productRepository.AddProduct(product);
             await _unitOfWork.SaveChangesAsync(cancellationToken);

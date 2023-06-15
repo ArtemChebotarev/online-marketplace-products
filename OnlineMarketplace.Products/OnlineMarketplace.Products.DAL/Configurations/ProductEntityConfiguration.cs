@@ -21,10 +21,6 @@ namespace OnlineMarketplace.Products.DAL.Configurations
                 .IsRequired();
 
             builder
-                .Property(p => p.Description)
-                .IsRequired();
-
-            builder
                 .Property(p => p.SellerId)
                 .IsRequired();
 

@@ -4,7 +4,7 @@ namespace OnlineMarketplace.Products.DAL.Repositories
 {
     public interface IProductRepository
     {
-        Task<Product> GetProductByIdAsync(int id);
+        Task<Product?> GetProductByIdAsync(int id);
         Task<IEnumerable<Product>> GetAllProductsAsync();
         Task<IEnumerable<Product>> GetProductsBySellerAsync(int sellerId);
         Product AddProduct(Product product);

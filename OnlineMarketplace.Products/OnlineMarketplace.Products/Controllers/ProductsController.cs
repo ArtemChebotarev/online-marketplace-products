@@ -40,7 +40,14 @@ namespace OnlineMarketplace.Products.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            return Ok();
+            var result = _mediator.Send(new GetProductByIdQuery(id));
+
+            if (result is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
         }
 
         [HttpPost]

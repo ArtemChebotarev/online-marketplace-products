@@ -20,11 +20,13 @@ jobs:
           dotnet-version: '6.0.x'
       - name: Install dependencies
         run: dotnet restore ./OnlineMarketplace.Products/OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj
+      - name: Install integration tests dependencies
+        run: dotnet restore ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj
       - name: Build
         run: dotnet build ./OnlineMarketplace.Products/OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj --no-restore
       - name: Test
-        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj --no-restore --verbosity normal
+        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj --no-restore
       - name: Integration tests
-        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj --no-restore --verbosity normal
+        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj --no-restore 
         
       

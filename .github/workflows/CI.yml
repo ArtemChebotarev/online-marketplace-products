@@ -21,10 +21,10 @@ jobs:
       - name: Install dependencies
         run: dotnet restore ./OnlineMarketplace.Products/OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build ./OnlineMarketplace.Products/OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj --no-restore
       - name: Test
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj --no-restore --verbosity normal
       - name: Integration tests
-        run: dotnet test /OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/bin/Debug/net6.0/OnlineMarketplace.Products.IntegrationTests.dll --no-restore 
+        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj --no-restore 
         
       

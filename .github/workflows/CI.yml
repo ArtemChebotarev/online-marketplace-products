@@ -25,6 +25,6 @@ jobs:
       - name: Test
         run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj --no-restore --verbosity normal
       - name: Integration tests
-        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj --no-restore --verbosity normal
+        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/bin/Debug/net6.0/OnlineMarketplace.Products.IntegrationTests.dll --no-restore --verbosity normal
         
       

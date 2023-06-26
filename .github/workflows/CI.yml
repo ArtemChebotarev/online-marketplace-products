@@ -25,8 +25,8 @@ jobs:
       - name: Build
         run: dotnet build ./OnlineMarketplace.Products/OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj --no-restore
       - name: Test
-        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj --no-restore
+        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj --no-restore --verbosity detailed
       - name: Integration tests
-        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj --no-restore 
+        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj --no-restore --verbosity normal
         
       

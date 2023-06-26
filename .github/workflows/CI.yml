@@ -23,8 +23,20 @@ jobs:
       - name: Build
         run: dotnet build ./OnlineMarketplace.Products/OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj --no-restore
       - name: Test
-        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj --no-restore --verbosity normal
+        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj --no-restore --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
       - name: Integration tests
         run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj --no-restore --verbosity normal
+      - name: Code Coverage Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage/**/coverage.cobertura.xml
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: '60 80'
         
       

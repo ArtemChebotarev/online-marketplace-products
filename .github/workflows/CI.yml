@@ -8,7 +8,7 @@ on:
     
 env:
   SOLUTION_FOLDER: OnlineMarketplace.Products
-  SOLUTION_FILE_PATH: $SOLUTION_FOLDER/OnlineMarketplace.Products.sln
+  SOLUTION_FILE_PATH: OnlineMarketplace.Products.sln
   API_PROJECT_PATH: OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj
   UNIT_TESTS_PROJECT_PATH: OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj
   INTEGRATION_TESTS_PROJECT_PATH: OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj
@@ -26,7 +26,7 @@ jobs:
         with:
           dotnet-version: '6.0.x'
       - name: Install dependencies
-        run: dotnet restore ./$SOLUTION_FILE_PATH
+        run: dotnet restore ./$SOLUTION_FOLDER/$SOLUTION_FILE_PATH
       - name: Build
         run: dotnet build ./$SOLUTION_FOLDER/$API_PROJECT_PATH --no-restore
       - name: Test

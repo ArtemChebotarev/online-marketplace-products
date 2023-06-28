@@ -9,6 +9,9 @@ on:
 env:
   SOLUTION_FOLDER: OnlineMarketplace.Products
   SOLUTION_FILE: OnlineMarketplace.Products.sln
+  API_PROJECT_PATH: OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj
+  UNIT_TESTS_PROJECT_PATH: OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj
+  INTEGRATION_TESTS_PROJECT_PATH: OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj
 
 jobs:
   build:
@@ -25,11 +28,11 @@ jobs:
       - name: Install dependencies
         run: dotnet restore ./$SOLUTION_FOLDER/$SOLUTION_FILE
       - name: Build
-        run: dotnet build ./OnlineMarketplace.Products/OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj --no-restore
+        run: dotnet build ./$SOLUTION_FOLDER/$API_PROJECT_PATH --no-restore
       - name: Test
-        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.Tests/OnlineMarketplace.Products.Tests.csproj --no-restore --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+        run: dotnet test ./$SOLUTION_FOLDER/$UNIT_TESTS_PROJECT_PATH --no-restore --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
       - name: Integration tests
-        run: dotnet test ./OnlineMarketplace.Products/OnlineMarketplace.Products.IntegrationTests/OnlineMarketplace.Products.IntegrationTests.csproj --no-restore --verbosity normal
+        run: dotnet test ./$SOLUTION_FOLDER/$INTEGRATION_TESTS_PROJECT_PATH --no-restore --verbosity normal
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:

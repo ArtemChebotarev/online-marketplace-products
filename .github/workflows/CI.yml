@@ -23,7 +23,7 @@ jobs:
         with:
           dotnet-version: '6.0.x'
       - name: Install dependencies
-        run: dotnet restore ./${{ SOLUTION_FOLDER }}/${{ SOLUTION_FILE }}
+        run: dotnet restore ./$SOLUTION_FOLDER/$SOLUTION_FILE
       - name: Build
         run: dotnet build ./OnlineMarketplace.Products/OnlineMarketplace.Products/OnlineMarketplace.Products.Api.csproj --no-restore
       - name: Test
